@@ -10,7 +10,7 @@ import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { theme } from "./theme";
 import { appApi } from "./api";
-
+import { Artist } from "./Pages/Artist";
 
 
 const root = ReactDOM.createRoot(
@@ -37,6 +37,7 @@ root.render(
           <Routes>
             <Route path='/' element={<App />}>
               <Route index element={<Home/>} />
+              <Route path="/artist:id" element={<Artist/>} />
             </Route>
           </Routes>
         </div>

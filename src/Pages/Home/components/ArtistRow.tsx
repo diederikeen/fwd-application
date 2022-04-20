@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 import { IArtist } from "../../../api";
 import { styled } from "../../../theme";
 
-const StyledRow = styled('a', {
+const StyledRow = styled(Link, {
   padding: '$lg',
   borderRadius: '$sm',
   backgroundColor: '$white',
@@ -24,5 +26,5 @@ const StyledRow = styled('a', {
 });
 
 export function ArtistRow({ artist }: { artist: IArtist }) {
-  return <StyledRow href={`/artist?id=${artist.id}`}>{artist.name}</StyledRow>
+  return <StyledRow to={`/artist:${artist.id}`}>{artist.name}</StyledRow>
 }
