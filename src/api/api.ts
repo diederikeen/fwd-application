@@ -14,7 +14,7 @@ interface ISong {
   album: string;
 }
 
-interface IArtist {
+export interface IArtist {
   id: number;
   name: string;
 }
@@ -23,12 +23,15 @@ export const appApi = createApi({
   reducerPath: "appApi",
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
-    getAllArtists: builder.query<ISong, void>({
-      query: () => '/artists',
+    // Can't search property specific see issue
+    // https://github.com/typicode/json-server/issues/1157
+    // results also contain ID's that correspond with query.
+    getAllArtists: builder.query<Array<ISong>, string>({
+      query: (name) => name ? `/artists?q=${name}` : '/artists',
     }),
 
     getAllSongsByArtist: builder.query<Array<ISong>, IArtist['name']>({
-      query: (artist) => `/songs?${artist}`
+      query: (artist) => `/songs?artist=${artist}`
     })
   }),
 })

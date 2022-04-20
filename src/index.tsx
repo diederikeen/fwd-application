@@ -23,7 +23,7 @@ const globalStyles = globalCss({
     fontFamily: 'Avenir, sans-serif',
   },
   "body": {
-    backgroundColor: '$grey800',
+    backgroundColor: '$white',
     color: '$textPrimary'
   }
 })
