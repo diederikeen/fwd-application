@@ -53,14 +53,14 @@ export function SongRow({ song }: { song: ISong }) {
       <div>
         <p className="song-genre">Genre: <span>{song.genre}</span></p>
         <p className="song-name">
-          Title: {song.name}
+          {song.name} - {song.album}
           <span className="song-duration">({format(song.duration, 'm:ss')})</span>
         </p>
       </div>
 
       <div className="song-actions">
-        <Anchor to={song.spotifyId} level="secondary" label="Add to playlist"/>
-        <Anchor to={song.spotifyId} external={true} label="Listen on spotify"/>
+        <Anchor to={''} level="secondary" label="Add to playlist"/>
+        <Anchor to={`https://open.spotify.com/track/${song.spotifyId}`} external={true} label="Listen on spotify"/>
       </div>
     </StyledRow>
   )
