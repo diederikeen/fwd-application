@@ -1,29 +1,7 @@
 import { styled } from "../../theme";
 import { ArtistSearch } from "./containers/ArtistSearch";
-
-
-const Title = styled('h1', {
-  fontSize: '40px',
-  lineHeight: '50px',
-  letterSpacing: '1px',
-  textTransform: 'uppercase',
-
-  '@bp2': {
-    fontSize: '70px',
-    lineHeight: '80px',
-  }
-});
-
-const SubTitle = styled('p', {
-  fontSize: '20px',
-  lineHeight: '32px',
-  opacity: '.8',
-
-  '@bp2': {
-    fontSize: '24px'
-  }
-});
-
+import { Title } from "../../common/components/Title";
+import { Subtitle } from "../../common/components/Subtitle";
 
 const copy = {
   title: 'FWD Music',
@@ -38,7 +16,7 @@ export function Home() {
   return (
     <>
       <Title>{copy.title}</Title>
-      <SubTitle>{copy.subtitle}</SubTitle>
+      <Subtitle>{copy.subtitle}</Subtitle>
 
       <Section>
         <ArtistSearch/>
