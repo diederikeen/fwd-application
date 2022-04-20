@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { debounce } from "throttle-debounce";
+import { throttle } from "throttle-debounce";
 
 import { useGetAllArtistsQuery } from "../../../../api";
 
@@ -19,6 +19,7 @@ const StyledInput = styled('input', {
   fontWeight: '600',
   width: '100%',
   marginTop: '$lg',
+  color: '$primary',
 
   '@bp2': {
     width: '50%',
@@ -58,7 +59,7 @@ export function ArtistSearch() {
   const [query, setQuery] = useState<string>('');
   const {data, isLoading} = useGetAllArtistsQuery(query);
 
-  const debounceSearch = debounce(500, true, (event) => {
+  const throttleSearch = throttle(500, (event) => {
     const { currentTarget } = event;
     setQuery(decodeURIComponent(currentTarget.value));
   })
@@ -73,7 +74,7 @@ export function ArtistSearch() {
           name="artist_search"
           role="input"
           placeholder="Example: Weird Al"
-          onChange={(event) =>  debounceSearch(event)}
+          onChange={(event) =>  throttleSearch(event)}
         />
       </Header>
 

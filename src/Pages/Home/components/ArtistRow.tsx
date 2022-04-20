@@ -10,7 +10,7 @@ const StyledRow = styled(Link, {
   display: 'block',
   fontWeight: '500',
   border: '1px solid $grey100',
-  color: "$grey100",
+  color: "$grey800",
   textDecoration: 'none',
 
   '&:not(:last-child)': {

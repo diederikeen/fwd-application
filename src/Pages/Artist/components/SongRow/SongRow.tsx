@@ -47,14 +47,11 @@ const StyledRow = styled('div', {
 
     '@bp2': {
       marginLeft: 'auto',
+      marginTop: 0,
     },
 
     'a:first-child': {
       marginRight: '$sm',
-
-      // '@bp2': {
-      //   marginRight: '$sm',
-      // }
     }
   }
 });
