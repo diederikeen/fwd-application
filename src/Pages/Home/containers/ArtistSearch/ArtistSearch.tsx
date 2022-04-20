@@ -2,17 +2,29 @@ import { useState } from "react";
 import { debounce } from "throttle-debounce";
 
 import { useGetAllArtistsQuery } from "../../../../api";
+
 import { ArtistRow } from "../../components";
 import { styled } from "../../../../theme";
+import { Title } from "../../../../common/components/Title";
+import { Subtitle } from "../../../../common/components/Subtitle";
+import { Header } from "../../../../common/components/Header";
+import { Container } from "../../../../common/components/Container";
 
 
 const StyledInput = styled('input', {
-  height: '36px',
+  height: '44px',
   borderRadius: '$sm',
   border: '1px solid $primary',
-  padding: '0 $md',
+  padding: '0 $lg',
   fontWeight: '600',
-  minWidth: '250px',
+  width: '100%',
+  marginTop: '$lg',
+
+  '@bp2': {
+    width: '50%',
+    marginTop: '$xlg',
+    height: '54px',
+  },
 
   '&::placeholder': {
     color: '$grey100',
@@ -25,20 +37,21 @@ const StyledInput = styled('input', {
 })
 
 const StyledSection = styled('section', {
+  padding: '$xlg 0',
   marginTop: '$xlg',
 })
 
-const StyledLabel = styled('label', {
-  display: 'block',
-  textTransform: 'uppercase',
-  fontSize: '12px',
+const StyledLabel = styled('p', {
+  marginBottom: '$md',
   fontWeight: 700,
-  marginBottom: '$sm',
-});
+})
+
 
 const copy = {
+  title: 'FWD Music',
+  subtitle: 'Find your music now!',
   loadingMessage: 'Loading all artists...',
-  inputLabel: 'Search for your artists'
+  resultsLabel: "Results"
 }
 
 export function ArtistSearch() {
@@ -52,19 +65,25 @@ export function ArtistSearch() {
 
   return (
     <>
-      <StyledLabel>{copy.inputLabel}</StyledLabel>
-      <StyledInput
-        name="artist_search"
-        placeholder="Example: Weird Al"
-        onChange={(event) =>  debounceSearch(event)}
-      />
+      <Header>
+        <Title>{copy.title}</Title>
+        <Subtitle>{copy.subtitle}</Subtitle>
 
+        <StyledInput
+          name="artist_search"
+          placeholder="Example: Weird Al"
+          onChange={(event) =>  debounceSearch(event)}
+        />
+      </Header>
 
-      <StyledSection>
-        {isLoading  ? <p>{copy.loadingMessage}</p> : (
-          data?.map((artist) => <ArtistRow key={artist.name} artist={artist}/>)
-        )}
-      </StyledSection>
+      <Container>
+        <StyledSection>
+          <StyledLabel>{copy.resultsLabel}</StyledLabel>
+          {isLoading  ? <p>{copy.loadingMessage}</p> : (
+            data?.map((artist) => <ArtistRow key={artist.name} artist={artist}/>)
+          )}
+        </StyledSection>
+      </Container>
     </>
   )
 }

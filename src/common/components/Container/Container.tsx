@@ -7,7 +7,7 @@ const StyledContainer = styled('div', {
   margin: '0px auto',
 });
 
-export function Container({children}: { children: JSX.Element }) {
+export function Container({children}: { children: JSX.Element | JSX.Element[] }) {
   return (
     <StyledContainer>{children}</StyledContainer>
   )

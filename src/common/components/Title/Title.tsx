@@ -5,6 +5,7 @@ export const Title = styled('h1', {
   lineHeight: '50px',
   letterSpacing: '1px',
   textTransform: 'uppercase',
+  color: '$white',
 
   '@bp2': {
     fontSize: '70px',
