@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { globalCss } from "@stitches/react";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { Home } from "./Pages/Home";
 
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { theme } from "./theme";
 import { appApi } from "./api";
+
 
 
 const root = ReactDOM.createRoot(
@@ -26,12 +30,18 @@ const globalStyles = globalCss({
 
 root.render(
   <React.StrictMode>
-    {globalStyles()}
-    <ApiProvider api={appApi}>
-      <div className={theme}>
-        <App />
-      </div>
-    </ApiProvider>
+    <BrowserRouter>
+      {globalStyles()}
+      <ApiProvider api={appApi}>
+        <div className={theme}>
+          <Routes>
+            <Route path='/' element={<App />}>
+              <Route index element={<Home/>} />
+            </Route>
+          </Routes>
+        </div>
+      </ApiProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
