@@ -37,7 +37,7 @@ root.render(
           <Routes>
             <Route path='/' element={<App />}>
               <Route index element={<Home/>} />
-              <Route path="/artist:id" element={<Artist/>} />
+              <Route path="/artist/:name" element={<Artist/>} />
             </Route>
           </Routes>
         </div>
