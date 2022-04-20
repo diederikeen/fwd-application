@@ -71,13 +71,14 @@ export function ArtistSearch() {
 
         <StyledInput
           name="artist_search"
+          role="input"
           placeholder="Example: Weird Al"
           onChange={(event) =>  debounceSearch(event)}
         />
       </Header>
 
       <Container>
-        <StyledSection>
+        <StyledSection role="list">
           <StyledLabel>{copy.resultsLabel}</StyledLabel>
           {isLoading  ? <p>{copy.loadingMessage}</p> : (
             data?.map((artist) => <ArtistRow key={artist.name} artist={artist}/>)

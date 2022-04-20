@@ -21,6 +21,7 @@ const globalStyles = globalCss({
   '*' : {
     margin: 0,
     fontFamily: 'Avenir, sans-serif',
+    boxSizing: 'border-box',
   },
   "body": {
     backgroundColor: '$white',

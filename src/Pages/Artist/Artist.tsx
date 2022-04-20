@@ -21,7 +21,7 @@ export function Artist() {
   return (
     <>
       <Header>
-        <Title>{copy.title} {name}</Title>
+        <Title role="heading">{copy.title} {name}</Title>
         <Subtitle>{copy.subtitle}</Subtitle>
       </Header>
 

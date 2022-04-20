@@ -26,5 +26,5 @@ const StyledRow = styled(Link, {
 });
 
 export function ArtistRow({ artist }: { artist: IArtist }) {
-  return <StyledRow to={`/artist/${encodeURIComponent(artist.name)}`}>{artist.name}</StyledRow>
+  return <StyledRow role="listItem" to={`/artist/${encodeURIComponent(artist.name)}`}>{artist.name}</StyledRow>
 }
