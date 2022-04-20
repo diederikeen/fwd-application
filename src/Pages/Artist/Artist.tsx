@@ -11,7 +11,6 @@ const copy = {
   errorMessage: `Oops, it seems we can't find this artist.`,
   title: 'Music by',
   subtitle: 'Listen to your favourite music!'
-
 }
 
 export function Artist() {

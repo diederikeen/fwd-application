@@ -9,12 +9,14 @@ const StyledRow = styled('div', {
   border: '1px solid $grey100',
   borderRadius: '$sm',
   display: 'flex',
-  alignItems: 'center',
   fontSize: '14px',
   fontWeight: 700,
+  flexDirection: 'column',
 
   '@bp2': {
     fontSize: '16px',
+    alignItems: 'center',
+    flexDirection: 'row'
   },
 
   '&:not(:last-child)': {
@@ -37,10 +39,22 @@ const StyledRow = styled('div', {
 
   '.song-actions': {
     display: 'flex',
-    marginLeft: 'auto',
+    marginTop: '$xlg',
+
+    'a': {
+      flexGrow: 1,
+    },
+
+    '@bp2': {
+      marginLeft: 'auto',
+    },
 
     'a:first-child': {
       marginRight: '$sm',
+
+      // '@bp2': {
+      //   marginRight: '$sm',
+      // }
     }
   }
 });

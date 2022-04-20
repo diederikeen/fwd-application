@@ -12,6 +12,7 @@ const StyledAnchor = styled('a', {
   borderRadius: '$sm',
   textDecoration: 'none',
   transition: 'all 175ms ease',
+  textAlign: 'center',
 
   variants: {
     level: {
@@ -28,6 +29,7 @@ const StyledAnchor = styled('a', {
       secondary: {
         color: '$primary',
         backgroundColor: '$white',
+        border: '1px solid $grey100',
 
         '&:hover': {
           backgroundColor: '$grey100',
